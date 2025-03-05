@@ -66,3 +66,56 @@ const App: React.FC = () => {
     }
   }, [month, day]);
 
+  return (
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.container}>
+        <Text style={styles.title}>Assignment 3 - API Calls, List Management</Text>
+
+        <Text style={styles.label}>Select Month:</Text>
+        <View style={styles.pickerContainer}>
+          <Picker
+            selectedValue={month}
+            onValueChange={(value: string) => setMonth(value)}
+            style={styles.picker}
+            itemStyle={styles.pickerItem}
+          >
+            <Picker.Item label="-- Select --" value="" />
+            {[...'January February March April May June July August September October November December'.split(' ')].map((m, i) => (
+              <Picker.Item key={i} label={m} value={(i + 1).toString()} />
+            ))}
+          </Picker>
+        </View>
+
+        <Text style={styles.label}>Enter Day:</Text>
+        <TextInput
+          style={styles.input}
+          keyboardType="numeric"
+          placeholder="e.g. 7"
+          value={day}
+          onChangeText={setDay}
+        />
+
+        {loading && (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color="#0000ff" />
+            <Text>Loading fact...</Text>
+          </View>
+        )}
+
+        {error !== '' ? (
+          <View style={styles.errorContainer}>
+            <Text style={styles.errorText}>{error}</Text>
+          </View>
+        ) : (
+          fact !== '' &&
+          !loading && (
+            <View style={styles.factContainer}>
+              <Text style={styles.factText}>{fact}</Text>
+            </View>
+          )
+        )}
+      </View>
+    </SafeAreaView>
+  );
+};
+
