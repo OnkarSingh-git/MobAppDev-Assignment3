@@ -119,3 +119,88 @@ const App: React.FC = () => {
   );
 };
 
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#fff',
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+  },
+  container: {
+    flex: 1,
+    padding: 24,
+  },
+  title: {
+    fontSize: 24,
+    marginBottom: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 20,
+  },
+  label: {
+    fontSize: 16,
+    marginTop: 12,
+  },
+  pickerContainer: {
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 4,
+    marginTop: 8,
+    marginBottom: 16,
+    minHeight: 60,
+    justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+    elevation: 2,
+  },
+  picker: {
+    height: 60,
+    width: '100%',
+  },
+  pickerItem: {
+    fontSize: 18,
+    height: 60,
+  },
+  input: {
+    borderColor: '#ccc',
+    borderWidth: 1,
+    padding: 10,
+    marginTop: 8,
+    marginBottom: 16,
+    borderRadius: 4,
+  },
+  factContainer: {
+    marginTop: 20,
+    padding: 12,
+    backgroundColor: '#f3f3f3',
+    borderRadius: 6,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+  },
+  factText: {
+    fontSize: 16,
+    lineHeight: 22,
+  },
+  loadingContainer: {
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  errorContainer: {
+    marginTop: 20,
+    padding: 10,
+    backgroundColor: '#ffcccc',
+    borderRadius: 6,
+  },
+  errorText: {
+    color: '#cc0000',
+    fontSize: 16,
+  },
+});
+
+export default App;
+
